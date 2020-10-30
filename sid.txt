@@ -1,1 +1,3 @@
-
+HTTP_Malicious_Communicationg_webshell_china_chopper_php              sid:3003000
+ICMP_Malicious_Communication_Tunnel_Detection_Of_Type_Eight           sid:3003001
+ICMP_Malicious_Communication_Tunnel_Detection_Of_Type_Zero            sid:3003002
