@@ -12,8 +12,7 @@ Suricata是一个优秀的开源入侵检测系统，此项目记录安全运营
     恶意通信（Malicious_Communication）3003000---3003999
     暴力破解（Exhaustive_Attack） 3004000---3004999
     协议分析（Protocol_Analysis）3005000-3005999
-    安全管理（Security_Management）3006000-3006999
-    其它（Other）3007000-3007999
+    其它（Other）3006000-3006999
 # 规则命名方式：
         协议名称+规则分类+攻击手法
         HTTP_Malicious_Communicationg_webshell_china_chopper_php
